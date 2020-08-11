@@ -74,7 +74,7 @@ makeLibrary(const Module &module) {
 
     if (program) {
         // Write the module:
-        llvm::WriteBitcodeToFile(module.getLLModule(), *program->input);
+        llvm::WriteBitcodeToFile(*module.getLLModule(), *program->input);
         program->input->close();
 
         // Read output:

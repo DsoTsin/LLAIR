@@ -21,7 +21,7 @@ llvm::ErrorOr<std::unique_ptr<llvm::MemoryBuffer>>
 getMemoryBufferForStream(int FD, const llvm::Twine &BufferName);
 
 struct Program {
-    llvm::sys::ProcessInfo::ProcessId     pid;
+    llvm::sys::procid_t                   pid;
     std::unique_ptr<llvm::raw_fd_ostream> input;
     int                                   output;
 };

@@ -4,16 +4,17 @@ project(LLAIR)
 find_package(LLVM REQUIRED CONFIG)
 message(STATUS "Using LLVMConfig.cmake in: ${LLVM_DIR}")
 
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++17")
+#set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++17")
+set(CMAKE_CXX_STANDARD 17)
 
-find_program(XXD xxd)
+# find_program(XXD xxd)
 
-find_program(XCRUN xcrun)
+# find_program(XCRUN xcrun)
 
-execute_process(
-  COMMAND ${XCRUN} --sdk macosx --find metal
-  OUTPUT_VARIABLE METAL
-  OUTPUT_STRIP_TRAILING_WHITESPACE)
+# execute_process(
+#  COMMAND ${XCRUN} --sdk macosx --find metal
+#  OUTPUT_VARIABLE METAL
+#  OUTPUT_STRIP_TRAILING_WHITESPACE)
 
 install(
   EXPORT LLAIRTargets

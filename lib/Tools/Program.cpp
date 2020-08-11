@@ -9,7 +9,10 @@
 #include <iostream>
 #include <vector>
 
+#ifdef _MSC_VER
+#else
 #include <unistd.h>
+#endif
 
 namespace llair {
 

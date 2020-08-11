@@ -53,7 +53,7 @@ readMDInt(const llvm::Metadata &md) {
 llvm::Metadata *
 writeMDInt(llvm::LLVMContext &context, unsigned int value) {
     return llvm::ConstantAsMetadata::get(
-        llvm::ConstantInt::get(context, llvm::APInt(32, value, false)));
+        llvm::ConstantInt::get(context, llvm::APInt(32, (uint64_t)value, false)));
 }
 
 // Read and write a string:

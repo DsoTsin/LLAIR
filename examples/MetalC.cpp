@@ -55,7 +55,7 @@ main(int argc, char **argv) {
         return 1;
     }
 
-    llvm::WriteBitcodeToFile(module->getLLModule(), output_file->os());
+    llvm::WriteBitcodeToFile(*module->getLLModule(), output_file->os());
     output_file->keep();
 
     return 0;

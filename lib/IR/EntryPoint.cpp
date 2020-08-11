@@ -468,7 +468,7 @@ EntryPoint::Argument::Argument(llvm::Argument *function_argument, llvm::MDTuple 
                         continue;
                     }
 
-                    identifier = identifier_md->getString();
+                    identifier = identifier_md->getString().str();
                 }
             }
 
@@ -546,7 +546,7 @@ EntryPoint::Argument::Argument(llvm::Argument *function_argument, llvm::MDTuple 
 
                 auto identifier = string_md->getString();
 
-                d_details = FragmentInput({identifier, interpolation});
+                d_details = FragmentInput{identifier.str(), interpolation};
             }
         }
     }
@@ -1033,7 +1033,7 @@ VertexEntryPoint::Output::Output(llvm::MDTuple *md, VertexEntryPoint *entry_poin
 
             auto identifier = string_md->getString();
 
-            d_details = VertexOutput({identifier, interpolation});
+            d_details = VertexOutput{identifier.str(), interpolation};
         }
     }
 }

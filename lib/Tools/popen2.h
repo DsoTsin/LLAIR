@@ -7,6 +7,8 @@
 extern "C" {
 #endif
 
+typedef int pid_t;
+
 struct popen2 {
     pid_t child_pid;
     int   from_child, to_child;
