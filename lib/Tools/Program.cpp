@@ -25,7 +25,7 @@ getMemoryBufferForStream(int FD, const llvm::Twine &BufferName) {
     do {
         Buffer.reserve(Buffer.size() + ChunkSize);
 
-        nread = read(FD, Buffer.end(), ChunkSize);
+        //nread = read(FD, Buffer.end(), ChunkSize);
 
         if (nread == -1) {
             return std::error_code(errno, std::generic_category());
@@ -48,17 +48,17 @@ openProgram(llvm::StringRef path, llvm::ArrayRef<llvm::StringRef> args) {
         [](llvm::StringRef arg) -> char * { return const_cast<char *const>(arg.data()); });
     argv.push_back(nullptr);
 
-    struct popen2 child;
-    int           e = popen2(path_str.c_str(), argv.data(), &child);
+    //struct popen2 child;
+    //int           e = popen2(path_str.c_str(), argv.data(), &child);
 
-    if (e < 0) {
-        return std::error_code(errno, std::generic_category());
-    }
+    //if (e < 0) {
+    //    return std::error_code(errno, std::generic_category());
+    //}
 
     return Program(
-        {child.child_pid,
-         std::unique_ptr<llvm::raw_fd_ostream>(new llvm::raw_fd_ostream(child.to_child, true)),
-         child.from_child});
+        {/*child.child_pid*/0,
+         std::unique_ptr<llvm::raw_fd_ostream>(new llvm::raw_fd_ostream(/*child.to_child*/0, true)),
+         /*child.from_child*/0});
 }
 
 llvm::ErrorOr<std::unique_ptr<llvm::MemoryBuffer>>
